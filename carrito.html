@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pedidos - Panadería Doble J</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <iframe
+      src="includes/header.html"
+      class="embed embed--header"
+      title="Cabecera"
+      loading="eager"
+    ></iframe>
+
+    <main class="site-main">
+      <div class="container">
+        <h1 class="section-title section-title--center">
+          Que sea recoger y marchar
+        </h1>
+
+        <form class="order-form" action="#" method="post">
+          <article class="order-item">
+            <div class="order-item__head">
+              <h3 class="order-item__title">Panes</h3>
+            </div>
+
+            <figure class="order-item__media">
+              <img src="img/pan.png" alt="Pan artesano" width="200" height="160">
+            </figure>
+
+            <div class="order-item__controls">
+              <div class="qty">
+                <button class="qty__btn qty__btn--inc" type="button"
+                        aria-label="Añadir pan" data-target="qty-pan">+</button>
+                <button class="qty__btn qty__btn--dec" type="button"
+                        aria-label="Quitar pan" data-target="qty-pan">−</button>
+                <input class="qty__input" id="qty-pan" name="pan"
+                       type="number" value="0" min="0" readonly>
+              </div>
+
+              <button class="btn btn--add" type="button" data-add="qty-pan">ADD</button>
+            </div>
+          </article>
+
+          <article class="order-item">
+            <div class="order-item__head">
+              <h3 class="order-item__title">Tarta</h3>
+            </div>
+
+            <figure class="order-item__media">
+              <img src="img/tarta.png" alt="Tarta de chocolate" width="200" height="160">
+            </figure>
+
+            <div class="order-item__controls">
+              <div class="qty">
+                <button class="qty__btn qty__btn--inc" type="button"
+                        aria-label="Añadir tarta" data-target="qty-tarta">+</button>
+                <button class="qty__btn qty__btn--dec" type="button"
+                        aria-label="Quitar tarta" data-target="qty-tarta">−</button>
+                <input class="qty__input" id="qty-tarta" name="tarta"
+                       type="number" value="0" min="0" readonly>
+              </div>
+
+              <button class="btn btn--add" type="button" data-add="qty-tarta">ADD</button>
+            </div>
+          </article>
+
+          <article class="order-item">
+            <div class="order-item__head">
+              <h3 class="order-item__title">Cafés</h3>
+            </div>
+
+            <figure class="order-item__media">
+              <img src="img/taza.png" alt="Café especial" width="200" height="160">
+            </figure>
+
+            <div class="order-item__controls">
+              <div class="qty">
+                <button class="qty__btn qty__btn--inc" type="button"
+                        aria-label="Añadir café" data-target="qty-cafe">+</button>
+                <button class="qty__btn qty__btn--dec" type="button"
+                        aria-label="Quitar café" data-target="qty-cafe">−</button>
+                <input class="qty__input" id="qty-cafe" name="cafe"
+                       type="number" value="0" min="0" readonly>
+              </div>
+
+              <button class="btn btn--add" type="button" data-add="qty-cafe">ADD</button>
+            </div>
+          </article>
+          <fieldset class="pickup">
+            <legend class="sr-only">Datos de recogida</legend>
+
+            <label class="field">
+              <span class="field__label">Nombre:</span>
+              <input class="field__input" type="text" name="nombre"
+                     placeholder="Tu nombre" required>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Hora de recogida:</span>
+              <input class="field__input" type="time" name="hora" required>
+            </label>
+          </fieldset>
+
+          <div class="order-actions">
+            <button class="btn btn--buy" type="submit"
+                    disabled aria-disabled="true">
+              BUY NOW
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <iframe
+      src="includes/footer.html"
+      class="embed embed--footer"
+      title="Pie de página"
+      loading="lazy"
+    ></iframe>
+  </div>
+
+  <!-- JS: contador de cantidades y activación de BUY NOW -->
+  <script>
+    (function () {
+      function byId(id) { return document.getElementById(id); }
+      const buyBtn = document.querySelector('.btn--buy');
+
+      function total() {
+        const n1 = +byId('qty-pan').value || 0;
+        const n2 = +byId('qty-tarta').value || 0;
+        const n3 = +byId('qty-cafe').value || 0;
+        return n1 + n2 + n3;
+      }
+
+      function refresh() {
+        if (!buyBtn) return;
+        const enabled = total() > 0;
+        buyBtn.disabled = !enabled;
+        buyBtn.setAttribute('aria-disabled', String(!enabled));
+      }
+
+      // Botones + / − y ADD
+      document.addEventListener('click', (e) => {
+        const inc = e.target.closest('.qty__btn--inc');
+        const dec = e.target.closest('.qty__btn--dec');
+        const add = e.target.closest('[data-add]');
+
+        if (inc || dec) {
+          const target = (inc || dec).getAttribute('data-target');
+          const input = byId(target);
+          if (!input) return;
+          let v = +input.value || 0;
+          v = inc ? v + 1 : Math.max(0, v - 1);
+          input.value = v;
+          refresh();
+        } else if (add) {
+          const target = add.getAttribute('data-add');
+          const input = byId(target);
+          if (!input) return;
+          input.value = (+input.value || 0) + 1;
+          refresh();
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    function autoResizeIframe(iframe, fallback) {
+      function resize() {
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow.document;
+          const h = Math.max(
+            doc.body.scrollHeight,
+            doc.documentElement.scrollHeight
+          );
+          if (h) iframe.style.height = h + 'px';
+          else iframe.style.height = fallback;
+        } catch (e) {
+          iframe.style.height = fallback;
+        }
+      }
+      iframe.addEventListener('load', resize);
+    }
+
+    document.querySelectorAll('.embed--header, .embed--footer').forEach(ifr => {
+      const fallback = ifr.classList.contains('embed--header') ? '180px' : '140px';
+      autoResizeIframe(ifr, fallback);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panes - Panadería Doble J</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="page-wrapper">
+  <iframe
+    src="includes/header.html"
+    class="embed embed--header"
+    title="Cabecera"
+    loading="eager"
+  ></iframe>
+
+  <main class="site-main">
+    <div class="container">
+
+      <h1 class="section-title section-title--center">Nuestra Gran Selección de Panes</h1>
+
+      <section class="grid grid--featured" aria-label="Panes destacados">
+        <article class="card card--producto">
+          <figure class="card__media">
+            <img src="img/la-gozada.png" alt="La Gozada" width="340" height="260">
+          </figure>
+          <div class="card__body">
+            <h3 class="card__title">La Gozada</h3>
+            <p class="card__price">2,20 €</p>
+          </div>
+        </article>
+
+        <article class="card card--producto">
+          <figure class="card__media">
+            <img src="img/rosca-de-la-abuela.png" alt="La Rosca de la Abuela" width="340" height="260">
+          </figure>
+          <div class="card__body">
+            <h3 class="card__title">La Rosca de la Abuela</h3>
+            <p class="card__price">1,20 €</p>
+          </div>
+        </article>
+
+        <article class="card card--producto">
+          <figure class="card__media">
+            <img src="img/pan-de-bono.png" alt="Pan de Bono" width="340" height="260">
+          </figure>
+          <div class="card__body">
+            <h3 class="card__title">Pan de Bono</h3>
+            <p class="card__price">1,50 €</p>
+          </div>
+        </article>
+
+        <article class="card card--producto">
+          <figure class="card__media">
+            <img src="img/el-clasico.png" alt="El Clásico" width="340" height="260">
+          </figure>
+          <div class="card__body">
+            <h3 class="card__title">El Clásico</h3>
+            <p class="card__price">1,00 €</p>
+          </div>
+        </article>
+      </section>
+
+      <br>
+      <section class="otros-panes" aria-labelledby="otros-title">
+        <h2 id="otros-title" class="section-subtitle section-subtitle--center">Los Demás</h2>
+
+        <div class="otros__layout">
+          <ul class="lista-precios">
+            <li><span>Pan Integral</span><strong>1,20 €</strong></li>
+            <li><span>Chapata</span><strong>1,50 €</strong></li>
+          </ul>
+
+          <figure class="otros__media">
+            <img src="img/los-demas.png" alt="Surtido de panes artesanos" width="420" height="300">
+          </figure>
+
+          <ul class="lista-precios">
+            <li><span>Pan de Pita</span><strong>1,30 €</strong></li>
+            <li><span>Pan de Ajo</span><strong>1,50 €</strong></li>
+          </ul>
+        </div>
+      </section>
+
+      <p class="cta cta--center">
+        <a class="btn btn--primary" href="carrito.html">Haz tu pedido online</a>
+      </p>
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <iframe
+    src="includes/footer.html"
+    class="embed embed--footer"
+    title="Pie de página"
+    loading="lazy"
+  ></iframe>
+  </div>
+
+  <script>
+    // Ajuste automático de altura del iframe (si el navegador lo permite con file://)
+    function autoResizeIframe(iframe, fallback) {
+      function resize() {
+        try {
+          const doc = iframe.contentDocument || iframe.contentWindow.document;
+          const h = Math.max(
+            doc.body.scrollHeight,
+            doc.documentElement.scrollHeight
+          );
+          if (h) iframe.style.height = h + 'px';
+          else iframe.style.height = fallback;
+        } catch (e) {
+          // Si no nos deja leer (algún navegador bloquea), usar altura fija
+          iframe.style.height = fallback;
+        }
+      }
+      iframe.addEventListener('load', resize);
+    }
+
+    document.querySelectorAll('.embed--header, .embed--footer').forEach(ifr => {
+      const fallback = ifr.classList.contains('embed--header') ? '160px' : '140px';
+      autoResizeIframe(ifr, fallback);
+    });
+  </script>
+</body>
+</html>

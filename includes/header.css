@@ -1,0 +1,71 @@
+/* Header del iframe */
+
+* {
+  box-sizing: border-box;
+}
+/* Reset de márgenes y paddings */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #f7f3ec;
+}
+
+.site-header {
+  padding: 6px 10px;
+}
+
+/* Barra superior con logo + tabs */
+.header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(90deg, #7b8a3f, #c9a862);
+  border-radius: 0 0 14px 14px;
+  padding: 6px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+}
+
+/* Logo + texto */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #fdf5e9;
+}
+
+.brand__icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.brand__title {
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: lowercase;
+  font-size: .9rem;
+}
+
+/* Tabs de navegación */
+.main-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #2b1e12;
+  background: linear-gradient(180deg, #f5dfa4, #c9a862);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .8rem;
+  font-weight: 700;
+  box-shadow: 0 6px 12px rgba(0,0,0,.35);
+}
