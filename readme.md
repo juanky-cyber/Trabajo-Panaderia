@@ -100,6 +100,3 @@ TRABAJO PANADERIA/
     Tipografía Poppins.
 
     Uso de variables CSS para colores y sombras.
-
-    Se eliminó la adaptación a móvil:
-    El sitio ahora está optimizado solo para ordenadores.
