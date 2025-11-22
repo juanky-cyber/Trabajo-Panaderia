@@ -100,3 +100,7 @@ TRABAJO PANADERIA/
     Tipografía Poppins.
 
     Uso de variables CSS para colores y sombras.
+<<<<<<< HEAD
+=======
+
+>>>>>>> 01955d3 (Segunda entrega)
