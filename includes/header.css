@@ -40,16 +40,15 @@ body {
 }
 
 .brand__icon {
-  width: 32px;
-  height: 32px;
+  width: 55px;
+  height: 55px;
   border-radius: 8px;
 }
 
 .brand__title {
+  font-size: 1.6rem;
   font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: lowercase;
-  font-size: .9rem;
+  letter-spacing: .05em;
 }
 
 /* Tabs de navegación */
@@ -65,7 +64,7 @@ body {
   background: linear-gradient(180deg, #f5dfa4, #c9a862);
   padding: 6px 14px;
   border-radius: 999px;
-  font-size: .8rem;
+  font-size: 1rem;
   font-weight: 700;
   box-shadow: 0 6px 12px rgba(0,0,0,.35);
 }

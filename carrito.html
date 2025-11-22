@@ -168,29 +168,5 @@
       });
     })();
   </script>
-
-  <script>
-    function autoResizeIframe(iframe, fallback) {
-      function resize() {
-        try {
-          const doc = iframe.contentDocument || iframe.contentWindow.document;
-          const h = Math.max(
-            doc.body.scrollHeight,
-            doc.documentElement.scrollHeight
-          );
-          if (h) iframe.style.height = h + 'px';
-          else iframe.style.height = fallback;
-        } catch (e) {
-          iframe.style.height = fallback;
-        }
-      }
-      iframe.addEventListener('load', resize);
-    }
-
-    document.querySelectorAll('.embed--header, .embed--footer').forEach(ifr => {
-      const fallback = ifr.classList.contains('embed--header') ? '180px' : '140px';
-      autoResizeIframe(ifr, fallback);
-    });
-  </script>
 </body>
 </html>
