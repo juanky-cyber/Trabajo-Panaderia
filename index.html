@@ -9,20 +9,18 @@
 
 <body>
   <div class="home-page">
-
     <header class="home-header">
       <div class="home-header-bar">
         <img src="img/logo.jpg" alt="Logo Panadería Doble J" class="home-logo">
         <span class="home-header-title">PANADERIA DOBLE J</span>
+
       </div>
 
       <p class="home-slogan">
         UN BUEN PAN TE ALEGRA EL DÍA Y NUESTRO MAYOR PLACER ES ALEGRAR TU DÍA
       </p>
     </header>
-
     <main class="home-main">
-
       <section class="home-cards" aria-label="Categorías principales">
         <article class="home-card">
           <a href="panes.html" class="home-card-link">
@@ -45,7 +43,6 @@
           </a>
         </article>
       </section>
-
       <section class="home-history" aria-labelledby="historia-title">
         <div class="home-history-text">
           <h2 id="historia-title">Nuestra historia</h2>
@@ -89,14 +86,15 @@
             <p><strong>Local:</strong> 139 Calle al Paraíso — 04617</p>
           </div>
         </div>
-
-        <p class="home-cta">
-          <a class="btn btn--primary" href="carrito.html">REALIZAR PEDIDO</a>
-        </p>
       </section>
-
     </main>
 
+    <section class="pedido-separado">
+      <a class="btn btn--primary pedido-btn" href="carrito.html">REALIZAR PEDIDO</a>
+    </section>
+
   </div>
+  <button class="theme-toggle" id="themeToggle" aria-label="Cambiar modo claro/oscuro"></button>
+  <script src="theme.js"></script>
 </body>
 </html>

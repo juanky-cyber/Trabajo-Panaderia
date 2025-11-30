@@ -1,57 +1,64 @@
 /* Footer del iframe */
-* {
-  box-sizing: border-box;
+*{
+  box-sizing:border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;       /* 👈 evita cualquier scroll dentro del iframe */
+html, body{
+  margin:0;
+  padding:0;
 }
 
-body {
-  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: #f7f3ec;
-  background: transparent;
+body{
+  font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:#f7f3ec;
+  background:transparent;
 }
 
 /* CONTENEDOR GENERAL */
-.footer {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  padding: 25px 40px;
-  background: rgba(255,255,255,.04);
+.footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:40px;
+  padding:24px 60px;
+  background:#1a120a;              
+  border-top:1px solid rgba(255,255,255,.18);
 }
 
-/* MAPA */
-.footer-map img {
-  width: 200px;      
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+/* Columna mapa */
+.footer-map{
+  flex:0 0 auto;
 }
 
-/* CONTACTO */
-.footer-contact {
-  color: #f5e9d7;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  text-align: left;
+.footer-map img{
+  width:200px;
+  height:auto;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.35);
 }
 
-.footer-contact p {
-  margin: 4px 0;
+/* Columnas de texto */
+.footer-col{
+  flex:1;
+  min-width:160px;
+  color:#f5e9d7;
+  font-size:0.95rem;
+  line-height:1.5rem;
+  text-align:left;
 }
 
-.footer-contact a {
-  color: #f3d37f;
-  text-decoration: underline;
+.footer-col h3,
+.footer-col h4{
+  margin:0 0 6px;
+  font-weight:700;
 }
 
-/* Separador (por si lo usas dentro) */
-.footer hr {
-  border: 0;
-  border-top: 1px solid rgba(255,255,255,.25);
-  margin: 12px 0;
+.footer-col p{
+  margin:3px 0;
 }
+
+.footer-col a{
+  color:#f3d37f;
+  text-decoration:underline;
+}
+
