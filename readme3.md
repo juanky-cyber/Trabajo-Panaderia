@@ -87,8 +87,11 @@ Transición fluida
 
 Efecto "elevación" al pasar el ratón
 
+## 9. Ajuste del carrito (sumar/restar + botón ADD)
 
-## 9. Modo Oscuro/Claro
+Los botones de sumar, restar y el “ADD” estaban demasiado lejos de la imagen. El problema era que el contenedor se estiraba demasiado hacia los lados. Le puse un max-width y ajusté el flex, y así pude acercarlos sin usar márgenes negativos ni cosas raras. Ahora queda todo más junto y mejor colocado.
+
+## 10. Modo Oscuro/Claro
 
 Se implementó un botón flotante (abajo a la derecha) que permite cambiar entre:
 
@@ -107,3 +110,20 @@ Se mantiene siempre visible en la pantalla
 Incluye animación en el icono (sol/luna)
 
 Este modo oscuro encaja perfecto con la temática de panadería: tonos café, marrones, crema y beige.
+
+## 11. Animaciones añadidas al header y al footer
+
+También le metí un poco de vida al header y al footer. Ahora los botones del menú tienen una animación suave al pasar por encima, con un pequeño zoom y una sombra que los hace más “clicables” sin cargar demasiado el diseño. 
+
+## 12. Animación en las tarjetas del inicio
+
+Añadí una animación suave a las tres tarjetas del index (Panes, Postres y Cafés). Al pasar el ratón por encima, la tarjeta sube ligeramente y la imagen hace un zoom muy suave. Esto ayuda a que se note que son elementos interactivos y da una sensación más moderna sin romper nada del estilo general.
+
+
+## 13. Sección de Contacto enlazada a contacto.html
+He hecho que toda la tarjeta de “Contáctanos” del index se pueda pulsar para llevar directamente a la nueva página contacto.html.
+Para conseguirlo, envolví el bloque completo dentro de un <a> y añadí una pequeña animación para que se note que es clicable, sin modificar la estética original.
+
+También añadí un efecto hover suave (ligero levantamiento y sombra) para que la interacción se vea más profesional.
+
+Con esto, la sección funciona igual que las demás cards de la página y mantiene el mismo estilo.

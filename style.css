@@ -5,16 +5,18 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 
-body{
-  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color:#f7f3ec;
-  background-color: #2b1e12;  
+body {
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
+  color: #f7f3ec;
+  background-color: #2b1e12;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
@@ -22,24 +24,24 @@ body{
   flex-direction: column;
 }
 
-body.light-mode{
-  background-color: #f6e0bc;   
-  color:#2b1e12;
+body.light-mode {
+  background-color: #f6e0bc;
+  color: #2b1e12;
 }
-
 
 /* ---------- Tema ---------- */
-:root{
-  --text:#f7f3ec;
-  --muted:#e7ddcf;
-  --accent:#e9cd8e;    
-  --accent-2:#c9a862;  
-  --chip:#69b279;      
-  --chip-2:#4a8a59;
-  --radius:18px;
-  --shadow:0 12px 30px rgba(0,0,0,.35);
+:root {
+  --text: #f7f3ec;
+  --muted: #e7ddcf;
+  --accent: #e9cd8e;
+  --accent-2: #c9a862;
+  --chip: #69b279;
+  --chip-2: #4a8a59;
+  --radius: 18px;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
   --content-w: 1000px;
 }
+
 /* ---------- Estructura general ---------- */
 .page-wrapper {
   display: flex;
@@ -48,7 +50,6 @@ body.light-mode{
   width: 100%;
 }
 
-
 /* Iframes header / footer (resto de páginas) */
 .embed {
   width: 100%;
@@ -56,8 +57,28 @@ body.light-mode{
   display: block;
   flex-shrink: 0;
 }
-.embed--header { height: 180px; }
-.embed--footer { height: 190px; }
+
+.embed--header {
+  height: 100px;
+}
+
+.embed--footer {
+  height: 190px;
+}
+
+/* Ajuste altura del iframe del header en móvil */
+@media (max-width: 480px) {
+  .embed--header {
+    height: 110px;
+  }
+}
+
+/* Altura fija del iframe del footer en móvil (sin scroll interno) */
+@media (max-width: 700px) {
+  .embed--footer {
+    height: 445px;
+  }
+}
 
 /* Contenido genérico interior (panes, postres, cafés, carrito) */
 main.site-main {
@@ -78,8 +99,8 @@ main.site-main {
 .section-title {
   text-align: center;
   margin: 8px 0 18px;
-  font-size: 2rem;               
-  letter-spacing: .04em;
+  font-size: 2rem;
+  letter-spacing: 0.04em;
 }
 
 .section-subtitle {
@@ -98,12 +119,12 @@ main.site-main {
 }
 
 .grid--featured {
-  grid-template-columns: repeat(2, minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .card {
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -117,11 +138,11 @@ main.site-main {
 }
 
 .card__media img {
-  width:450px;        
-  height:230px;       
-  object-fit:cover;
-  display:block;
-  border-radius:24px;
+  width: 450px;
+  height: 230px;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
 }
 
 @media (max-width: 700px) {
@@ -131,25 +152,23 @@ main.site-main {
   }
 }
 
-
 .card__body {
   padding: 0 14px 14px;
   text-align: center;
 }
 
-.card__title{
+.card__title {
   margin: 4px 0 6px;
   font-size: 1.05rem;
-  font-weight:700;
+  font-weight: 700;
 }
 
-.card__price{
+.card__price {
   margin: 0;
   color: #f7f3ec;
-  font-weight:700;
-  font-size:1rem;
+  font-weight: 700;
+  font-size: 1rem;
 }
-
 
 /* ---------- “Los demás” (lista + imagen central) ---------- */
 .otros__layout {
@@ -186,19 +205,19 @@ main.site-main {
   justify-content: space-between;
   gap: 12px;
   align-items: center;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   padding: 8px 12px;
-  box-shadow: 0 8px 18px rgba(0,0,0,.25);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
-/* Unificar color y estilo en bloque "Los Demás" */
+
+/* Unificar estilo en bloque "Los Demás" */
 .otros-panes .lista-precios li span,
 .otros-panes .lista-precios li strong {
   font-weight: 700;
   font-size: 1.1rem;
 }
-
 
 /* =========================================================
    Catálogo cafés (imagen 3x4 con nombres separados)
@@ -230,8 +249,8 @@ main.site-main {
 .cafe-label {
   text-align: center;
   color: var(--muted);
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 6px 8px;
 }
@@ -251,6 +270,7 @@ main.site-main {
   font-weight: 700;
   font-size: 1rem;
 }
+
 .btn:hover {
   transform: scale(1.06);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
@@ -259,14 +279,13 @@ main.site-main {
 .btn--primary {
   background: linear-gradient(180deg, var(--chip), var(--chip-2));
   color: #fff;
-  box-shadow: 0 10px 22px rgba(0,0,0,.35);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
 }
 
 .cta {
   margin: 16px 0;
   text-align: center;
 }
-
 
 /* =========================================================
    Página de pedidos / carrito
@@ -280,14 +299,15 @@ main.site-main {
 .order-item {
   display: flex;
   align-items: center;
-  gap: 18px;
-  max-width: 420px;
+  justify-content: flex-start;
+  gap: 24px;
+  max-width: 720px;
   margin: 0 auto 22px auto;
   padding: 14px 18px;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255,255,255,.12);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
 }
 
 .order-item__head {
@@ -309,11 +329,11 @@ main.site-main {
   height: auto;
   display: block;
   border-radius: 14px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.25);
 }
 
 .order-item__controls {
-  margin-left: auto;
+  margin-left: 0;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -324,8 +344,8 @@ main.site-main {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   padding: 4px 6px;
 }
@@ -339,8 +359,8 @@ main.site-main {
   color: #fff;
   font-weight: 700;
   font-size: 1rem;
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .qty__input {
@@ -365,8 +385,8 @@ main.site-main {
 .pickup {
   display: grid;
   gap: 12px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius);
   padding: 14px;
   margin-top: 10px;
@@ -384,10 +404,10 @@ main.site-main {
 .field__input {
   background: #25190f;
   color: #fff;
-  border: 1px solid rgba(255,255,255,.15);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 10px;
   padding: 6px 10px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
 }
 
 /* Botón BUY NOW */
@@ -398,18 +418,18 @@ main.site-main {
 .btn--buy {
   background: linear-gradient(180deg, #fc8e3a, #2d1f14);
   color: #cdbfae;
-  opacity: .6;
+  opacity: 0.6;
   padding: 10px 25px;
   font-size: 1rem;
   border-radius: 18px;
-  border: 2px solid rgba(205,191,174,.25);
+  border: 2px solid rgba(205, 191, 174, 0.25);
   margin-top: 10px;
 }
 
 .btn--buy:not([disabled]) {
   opacity: 1;
   color: #fff;
-  border-color: rgba(255,255,255,.15);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* =========================================================
@@ -444,9 +464,9 @@ main.site-main {
 
 .home-header-title {
   font-weight: 700;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   color: #f7f3ec;
-  font-size: 3rem;             
+  font-size: 3rem;
 }
 
 .home-slogan {
@@ -454,23 +474,22 @@ main.site-main {
   padding: 4px 10px 0;
   font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: .06em;
+  letter-spacing: 0.06em;
   color: #f7f3ec;
 }
 
-.home-bottom{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:40px;
-  margin:30px auto 40px;
-  padding:24px;
-  max-width:1100px;
-  background: rgba(0,0,0,.35);
-  border-radius:24px;
-  box-shadow:0 10px 26px rgba(0,0,0,.45);
+.home-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin: 30px auto 40px;
+  padding: 24px;
+  max-width: 1100px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 24px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
-
 
 /* Tarjetas principales del home */
 .home-main {
@@ -486,30 +505,39 @@ main.site-main {
   margin: 24px 0 18px;
 }
 
-.home-card{
-  flex:1;
-  background: rgba(0,0,0,.35);
-  border-radius:24px;
-  padding:10px;
-  text-align:center;
-  box-shadow:0 8px 18px rgba(0,0,0,.4);
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  height:auto;
+.home-card {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 24px;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
 }
 
-.home-card-img{
-  width: 250px;           
-  height: 260px;          
-  object-fit: cover;      
+.home-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.35);
+}
+
+.home-card-img {
+  width: 250px;
+  height: 260px;
+  object-fit: cover;
   object-position: center;
   border-radius: 20px;
   display: block;
+  transition: transform 0.35s ease;
 }
 
-
+.home-card:hover .home-card-img {
+  transform: scale(1.06);
+}
 
 .home-card-title {
   font-size: 1rem;
@@ -527,18 +555,17 @@ main.site-main {
 }
 
 /* Nuestra historia destacada */
-.home-history{
-  display:grid;
+.home-history {
+  display: grid;
   grid-template-columns: 1.3fr 1fr;
-  gap:20px;
-  margin:30px auto 0;
-  padding:24px;
-  max-width:1100px;
-  background: rgba(0,0,0,.35);
-  border-radius:24px;
-  box-shadow:0 10px 26px rgba(0,0,0,.45);
+  gap: 20px;
+  margin: 30px auto 0;
+  padding: 24px;
+  max-width: 1100px;
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 24px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45);
 }
-
 
 .home-history-text h2 {
   margin: 0 0 10px;
@@ -571,7 +598,7 @@ main.site-main {
   margin: 24px auto 30px auto;
   padding: 20px 22px 24px;
   border-radius: 24px;
-  background: rgba(0,0,0,.35);
+  background: rgba(0, 0, 0, 0.35);
   box-shadow: var(--shadow);
 }
 
@@ -592,7 +619,7 @@ main.site-main {
   width: 220px;
   height: auto;
   border-radius: 12px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
 }
 
 .contact-info {
@@ -640,7 +667,7 @@ main.site-main {
 .grid--postres .card__media img {
   width: 100%;
   height: 200px;
-  object-fit: cover;      
+  object-fit: cover;
   border-radius: 24px;
 }
 
@@ -651,7 +678,7 @@ main.site-main {
 }
 
 /* =========================================================
-   CAFÉS – Tipos de grano con cajas de colores 
+   CAFÉS – Tipos de grano con cajas de colores
    ========================================================= */
 .cafes-intro {
   margin-top: 10px;
@@ -669,7 +696,7 @@ main.site-main {
   gap: 0;
   border-radius: 0;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,.45);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
 /* Cajas laterales de colores */
@@ -731,13 +758,11 @@ main.site-main {
   font-size: 1.2rem;
   padding: 14px 28px;
   border-radius: 20px;
-  box-shadow: 0 8px 18px rgba(0,0,0,.35);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
-
-
 /* =======================
-   Ajuste básico responsive
+   Ajuste responsive genérico
    ======================= */
 @media (max-width: 900px){
 
@@ -775,13 +800,28 @@ main.site-main {
     grid-template-columns:1fr;
   }
 
+  /* === cafés: versión móvil más parecida al escritorio === */
   .cafes-grano-grid{
-    grid-template-columns:1fr;
-    grid-template-rows:auto;
+    max-width: 100%;
+    grid-template-columns: 1fr 1fr;   
+    grid-template-rows: auto;        
+  }
+
+  /* La foto ocupa la primera fila entera */
+  .cafes-grano-img{
+    grid-column: 1 / 3;              
+    grid-row: 1 / 2;
+  }
+
+  .cafes-grano{
+    padding: 12px 10px;
+    font-size: 0.85rem;
   }
 }
 
-/* Botón modo claro/oscuro flotante */
+/* =======================
+   Botón modo claro/oscuro
+   ======================= */
 .theme-toggle {
   position: fixed;
   right: 20px;
@@ -791,8 +831,8 @@ main.site-main {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 2px solid rgba(255,255,255,.7);
-  background: rgba(0,0,0,.3);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  background: rgba(0, 0, 0, 0.3);
   color: #f7f3ec;
   font-size: 1.2rem;
   cursor: pointer;
@@ -801,18 +841,308 @@ main.site-main {
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0 6px 16px rgba(0,0,0,.4);
-  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease,
+    color 0.2s ease;
 }
 
 .theme-toggle:hover {
   transform: translateY(-1px) scale(1.05);
-  box-shadow: 0 10px 22px rgba(0,0,0,.55);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
 }
 
 /* En modo claro invertimos un poco */
 body.light-mode .theme-toggle {
-  background: rgba(255,255,255,.85);
+  background: rgba(255, 255, 255, 0.85);
   color: #2b1e12;
   border-color: #2b1e12;
+}
+
+/* Precios en modo claro */
+body.light-mode .card__price {
+  color: #000 !important;
+}
+
+/* Controles de cantidad en modo claro */
+body.light-mode .qty {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.18);
+}
+
+body.light-mode .qty__btn {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #2b1e12;
+}
+
+body.light-mode .qty__input {
+  color: #2b1e12;
+}
+
+/* Etiquetas "Nombre" y "Hora de recogida" en modo claro */
+body.light-mode .pickup .field__label {
+  color: #2b1e12;
+  font-weight: 600;
+}
+
+/* Eslogan debajo del logo (portada) */
+body.light-mode .hero-slogan {
+  color: #333 !important;
+}
+
+/* Títulos principales */
+body.light-mode .section-title,
+body.light-mode .section-subtitle {
+  color: #222 !important;
+}
+
+/* Títulos bajo cada carta */
+body.light-mode .card__title {
+  color: #000 !important;
+}
+
+/* Texto general */
+body.light-mode p,
+body.light-mode span,
+body.light-mode a,
+body.light-mode li {
+  color: #222 !important;
+}
+
+body.light-mode header h1,
+body.light-mode header h2,
+body.light-mode header h3 {
+  color: #222 !important;
+}
+
+/* Tarjetas principales del home en modo claro */
+body.light-mode .home-card {
+  background: #d0b58a;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
+}
+
+body.light-mode .home-card-title {
+  color: #2b1e12;
+}
+
+body.light-mode .home-card-img {
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.3);
+}
+
+/* ===============================
+   MODO CLARO – Bloque “Nuestra historia”
+   =============================== */
+body.light-mode .home-history {
+  background: #d0b58a !important;
+  color: #2b1e12;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+body.light-mode .home-history-text p,
+body.light-mode .home-history-text h2 {
+  color: #2b1e12;
+}
+
+body.light-mode .home-history-logo img {
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.3));
+}
+
+/* ===============================
+   MODO CLARO – Bloque “Contáctanos”
+   =============================== */
+body.light-mode .home-contact-block {
+  background: #d0b58a !important;
+  color: #2b1e12;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+body.light-mode .contact-title,
+body.light-mode .contact-info p,
+body.light-mode .contact-info strong {
+  color: #2b1e12 !important;
+}
+
+body.light-mode .contact-info a {
+  text-decoration: underline;
+}
+
+body.light-mode .contact-map img {
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Hace que el bloque completo sea clicable sin cambiar la estética */
+.contact-wrapper-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.home-contact-clickable {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.home-contact-clickable:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.45);
+}
+
+/* =====================
+   AJUSTES HEADER INDEX
+   ===================== */
+@media (max-width: 768px) {
+  .home-header {
+    padding: 1.2rem 1.5rem 0.5rem;
+  }
+
+  .home-header-bar {
+    gap: 0.75rem;
+  }
+
+  .home-logo {
+    width: 70px;
+    height: auto;
+  }
+
+  .home-header-title {
+    font-size: 1.7rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .home-slogan {
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 0.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-header-title {
+    font-size: 1.5rem;
+  }
+
+  .home-slogan {
+    font-size: 0.8rem;
+  }
+}
+
+/* =========================
+   CONTACTO RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+  .home-contact-block {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .contact-title {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .contact-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.2rem;
+  }
+
+  .contact-map,
+  .contact-info {
+    width: 100%;
+  }
+
+  .contact-map img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 14px;
+  }
+
+  .contact-info {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-contact-block {
+    padding-inline: 1rem;
+  }
+
+  .contact-info {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   RESPONSIVE: CARRITO
+   ========================= */
+@media (max-width: 768px) {
+  .order-form {
+    gap: 1.2rem;
+  }
+
+  .order-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.2rem 1rem;
+  }
+
+  .order-item__head {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .order-item__title {
+    font-size: 1.3rem;
+  }
+
+  .order-item__media {
+    margin: 0.4rem 0 0.8rem;
+  }
+
+  .order-item__media img {
+    width: 150px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .order-item__controls {
+    width: 100%;
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .qty {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .qty__input {
+    max-width: 60px;
+    text-align: center;
+  }
+
+  .btn--add {
+    width: 100%;
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-item__title {
+    font-size: 1.2rem;
+  }
+
+  .order-item {
+    padding-inline: 0.8rem;
+  }
 }
